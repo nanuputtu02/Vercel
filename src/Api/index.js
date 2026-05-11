@@ -1,4 +1,4 @@
 import axios from 'axios';
-const getPost=axios('http://jsonplaceholder.typicode.com/posts')
+const getPost=axios.get('http://jsonplaceholder.typicode.com/posts')
 
 export default getPost;
