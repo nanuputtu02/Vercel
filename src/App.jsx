@@ -21,6 +21,11 @@ const App = () => {
     const searchresult=post.filter(item=>item.title.toLowerCase().includes(searchitem.toLowerCase()));
     setArray(searchresult);
   }
+  function onDelete(e){
+    const id=e.target.parentElement.firstChild.textContent;
+    const newarray=array.filter(item=>item.id.toString()!==id);
+    setArray(newarray);
+  }
   return (
     <div >
       <h1 className="heading">New App...</h1>
@@ -30,9 +35,10 @@ const App = () => {
         array.map((item,index)=>{
           return(
             <div key={index} className="post">
-              <h1>{item.id}</h1>
-              <h2>{item.title}</h2>
+              <p>{item.id}</p>
+              <p className="title">{item.title}</p>
               <p>{item.body}</p>
+              <button type="button" onClick={onDelete}>Delete</button>
             </div>
           )
         })
